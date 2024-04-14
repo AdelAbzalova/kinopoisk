@@ -11,7 +11,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 ### запуск в режиме разработчика:
-Запуск проекта в режиме разработчика происходит по команде TOKEN=your api token npm run start ;
+Запуск проекта в режиме разработчика происходит по команде TOKEN=yourApiToken npm run start ;
 проект доступен по ссылке http://localhost:7070
 
 ### `npm test`
