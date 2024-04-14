@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 
 export interface FilterState{
-// genres:string[]|null, 
 genres: {
   name:string
 }[]|null
@@ -45,7 +44,6 @@ export const fetchGenres = createAsyncThunk(
         method: "GET",
  
         headers: {
-          // "X-API-Key": "WF76VQQ-HQB4P5G-JFJH8DF-CRKDP1M",
           "X-API-Key": TOKEN,
           "Content-Type": "application/json",
         } ,
@@ -84,12 +82,6 @@ const filterSlice = createSlice({
   name: "filters",
   initialState,
   reducers: {
-    // logIn(state) {
-    //   state.isAuthorized = true;
-    // },
-    // logOut(state) {
-    //   state.isAuthorized = false;
-    // },
     changeGenreFilter(state, action:PayloadAction<string>) {
       state.genreFilter = action.payload;
     },
@@ -129,15 +121,9 @@ const filterSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // .addCase(fetchGenres.pending, (state) => {
-      //   // state.status = 'loading';
-      // })
       .addCase(fetchGenres.fulfilled, (state, action:PayloadAction<{name:string}[]>) => {
         state.genres = action.payload || null;
       })
-      // .addCase(fetchGenres.rejected, (state) => {
-      //   // state.status = 'failed';
-      // })
       .addCase(fetchCountries.fulfilled, (state, action:PayloadAction<{name:string}[]|null>) => {
         state.countries = action.payload || null;
       });
