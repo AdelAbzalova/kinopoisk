@@ -42,11 +42,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 ## Примеры запросов:
 
 Получение данных о фильмах
-
+```
   curl --request GET \
        --url 'https://api.kinopoisk.dev/v1.4/movie?page=1&limit=10' \
        --header 'X-API-KEY: token' \
        --header 'Content-Type: application/json'
 
-
+```
 
