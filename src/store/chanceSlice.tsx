@@ -83,10 +83,4 @@ export default chanceSlice.reducer;
 export const {
     logIn, 
     logOut, 
-//   changeReviewLimit, 
-//   changeReviewPage,
-//   clearReviewPage,
-//   changeActorsPage, 
-//   changeActorsLimit,
-//   changeSeasonsPage,
 } = chanceSlice.actions;
