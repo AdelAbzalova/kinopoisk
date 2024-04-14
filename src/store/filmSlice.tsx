@@ -12,7 +12,6 @@ export interface FilmState{
   actors: Actors|null,
   actorsStatus: string,
   actorsPage: number,
-  // actorsLimit:10,
   seasons: Seasons | null,
   seasonsPage: number,
   seasonsStatus: string,
@@ -149,7 +148,6 @@ const filmSlice = createSlice({
   reducers: {
     changeReviewLimit(state, action) {
       state.reviewLimit = action.payload;
-      // console.log('payload',action.payload)
     },
     changeReviewPage(state, action) {
       state.reviewPage = action.payload;
@@ -160,9 +158,6 @@ const filmSlice = createSlice({
     changeActorsPage(state, action) {
       state.actorsPage = action.payload;
     },
-    // changeActorsLimit(state, action){
-    //   state.actorsLimit=action.payload;
-    // },
     changeSeasonsPage(state, action) {
       state.seasonsPage = action.payload;
     },
@@ -222,19 +217,5 @@ const filmSlice = createSlice({
   },
 });
 
-// export default filmSlice.reducer;
-// export const {
-//   changeReviewLimit,
-//   changeReviewPage,
-//   clearReviewPage,
-//   changeActorsPage,
-//   changeActorsLimit,
-//   changeSeasonsPage,
-
-// //   changePrivacyFilter,
-// //   changeAvatarFilter,
-// //   changeFriendsFilter,
-// //   clearFilters,
-// } = filmSlice.actions;
 
 export const { reducer: filmReducer, actions: filmActions } = filmSlice;
