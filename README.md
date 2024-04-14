@@ -59,7 +59,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ```
 
-```json
+```
 ageRating: 18,
 alternativeName: "The Gentlemen",
 backdrop: {url: 'https://image.openmoviedb.com/kinopoisk-ott-images/1648503/2a000001711b57abb795e9276957168f83e9/orig',
