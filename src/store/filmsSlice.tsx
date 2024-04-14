@@ -1,8 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { Films } from "../components/models";
-// import { useSearchParams } from "react-router-dom";
-
-
 
 interface FilmsState{
   films: Films|null,
@@ -39,29 +36,13 @@ const TOKEN=process.env.REACT_APP_API_TOKEN || "";
 export const fetchFilms = createAsyncThunk<Films,URLSearchParams, {rejectValue:string,state:{films:FilmsState}}>(
   "films/fetchFilms",
   async (searchParams, { rejectWithValue }) => {
-    // const {page, limit}=getState().films;
-    // const {countryFilter,ageRatingFilter,yearFilter}=getState().filters;
-    // const isCountry =countryFilter ? `&countries.name=${countryFilter}` : "";
-    // const isAgeRating = ageRatingFilter? `&ageRating=${ageRatingFilter}` : "";
-    // const isYear = yearFilter ? `&releaseYears.start=${yearFilter}` : "";
-    // const isSearch=search ? `&query=${search}`:"";
-    // const [searchParams, setSearchParams] = useSearchParams();
-    // const queryParams = searchParams.get('movie') || '';
-    // console.log('qp', queryParams)
-    // const API=`https://api.kinopoisk.dev/v1.4/movie?page=${page}&limit=${limit}${isCountry}${isAgeRating}${isYear}`;
-    // console.log('searchpar', searchParams)
-
-    // const API = ;
-    // console.log("api", API);
     const response = await fetch(`https://api.kinopoisk.dev/v1.4/movie?${searchParams}`, {
       method: "GET",
       headers: {
         "X-API-Key": TOKEN,
         "Content-Type": "application/json",
-        //   "X-RapidAPI-Host": "free-to-play-games-database.p.rapidapi.com",
       },
     });
-    // console.log('as lim',films.limit);
     if (!response.ok) {
       return rejectWithValue("server error");
     }
@@ -77,8 +58,6 @@ export const fetchSearch = createAsyncThunk<Films,undefined, {rejectValue:string
 
     const isSearch = search ? `&query=${search}` : "";
 
-    // const API = ;
-    // console.log("api", API);
     const response = await fetch(`https://api.kinopoisk.dev/v1.4/movie/search?page=${searchPage}&limit=${searchLimit}${isSearch}`, {
       method: "GET",
       headers: {
@@ -140,7 +119,6 @@ const filmsSlice = createSlice({
         let searchTips=localStorage.getItem("searchTip");
         state.previousSearch =
         searchTips ? JSON.parse(searchTips) : [];
-        //  console.log(state.previousSearch.length);
 
         if (!state.previousSearch.includes(state.search)) {
           if (state.previousSearch.length > 20) {
